@@ -1,6 +1,23 @@
 import React from "react";
 import { Link } from "@reach/router";
 import styled from "@emotion/styled";
+import { keyframes } from "@emotion/core";
+
+
+const Spin = keyframes`
+  from {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(360deg)
+  }
+`;
+
+const SpyGlass = styled("span")`
+  display: inline-block;
+  animation: 1s ${Spin} linear infinite;
+`;
 
 const Container = styled("header")`
   background-color: #333;
@@ -15,9 +32,9 @@ const NavBar = () => {
     <Container>
       <Link to="/">Adopt Me!</Link>
       <Link to="/search-params">
-        <span aria-label="search" role="img">
+        <SpyGlass aria-label="search" role="img">
           🔍
-        </span>
+        </SpyGlass>
       </Link>
     </Container>
   );
